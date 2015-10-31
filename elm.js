@@ -286,8 +286,9 @@ Elm.Bingo.make = function (_elm) {
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
-   var main = $Html.text("Hello, World!!!");
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
+   var main = $Html.text($String.repeat(3)($String.toUpper("bongo!!! ")));
    _elm.Bingo.values = {_op: _op
                        ,main: main};
    return _elm.Bingo.values;
