@@ -1,11 +1,30 @@
 module Bingo where
 
-import Html
-import String
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
+import String exposing (toUpper, repeat, trimRight)
+
+title message times =
+  message ++ " "
+  |> toUpper
+  |> repeat times
+  |> trimRight
+  |> text
+
+
+pageHeader =
+  h1 [id "logo", class "something"] [title "bingo" 4]
+
+
+pageFooter =
+  footer []
+    [a [ href "https://pragmaticstudio.com"]
+       [ text "The Pragmatuc Studio"]]
+
+
+view =
+  div [id "container"] [ pageHeader, pageFooter ]
 
 main =
-  -- Html.text (String.repeat 3 (String.toUpper "bingo! "))
-  "bongo!!! "
-  |> String.toUpper
-  |> String.repeat 3
-  |> Html.text
+  view
